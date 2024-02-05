@@ -1,0 +1,133 @@
+<div class="container">
+  <form [formGroup]="userForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="firstName"
+            name="firstName"
+          />
+          <div
+            class="text-danger"
+            *ngIf="userForm.controls['firstName'].touched"
+          >
+            <span *ngIf="userForm.controls['firstName'].errors?.['required']"
+              >FirstName is Required
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Email</label>
+          <input
+            type="email"
+            formControlName="email"
+            name="email"
+            class="form-control"
+          />
+          <div class="text-danger" *ngIf="userForm.controls['email'].touched">
+            <span *ngIf="userForm.controls['email'].errors?.['required']"
+              >Email is required</span
+            >
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Staus</label>
+          <select
+            class="form-select"
+            formControlName="status"
+            name="status"
+            aria-label="Default select example"
+          >
+            <option selected>--- Select Staus ---</option>
+            <option value="Completed">Completed</option>
+            <option value="Pending">Pending</option>
+            <option value="Progress">Progress</option>
+          </select>
+        </div>
+
+        <div formGroupName="address">
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Country</label
+            >
+            <select
+              class="form-select"
+              formControlName="country"
+              name="country"
+              aria-label="Default select example"
+            >
+              <option selected>--- Select Country ---</option>
+              <option value="india">India</option>
+              <option value="canada">Canada</option>
+              <option value="USA">USA</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">State</label>
+            <select class="form-select" formControlName="state" name="state">
+              <option selected>--- Select State ---</option>
+              <option value="uttarkhand">uttarkhand</option>
+              <option value="punjab">punjab</option>
+              <option value="goa">goa</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">City</label>
+            <select
+              class="form-select"
+              formControlName="city"
+              name="city"
+              aria-label="Default select example"
+            >
+              <option selected>--- Select City ---</option>
+              <option value="city1">city 1</option>
+              <option value="city2">city 2</option>
+              <option value="city3">city 3</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            name="lastName"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Phone</label>
+          <input
+            type="text"
+            formControlName="phone"
+            name="phone"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input
+            type="text"
+            formControlName="password"
+            name="password"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </div>
+
+    <button  (click)="onSave()" class="btn btn-primary">Submit</button>
+  </form>
+</div>
